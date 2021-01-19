@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/view_models/movie_view_models.dart';
-import 'package:flutter_movie_app/widgets/movie_list.dart';
+import 'package:flutter_movie_app/movie_list/view_models/movie_view_models.dart';
+import 'package:flutter_movie_app/movie_list/widgets/movie_list.dart';
+import 'package:flutter_movie_app/utils.dart';
 import 'package:provider/provider.dart';
 
 class MovieListPage extends StatefulWidget {
@@ -25,6 +26,7 @@ class _MovieListPageState extends State<MovieListPage> {
 
     return Scaffold(
       appBar: AppBar(),
+      drawer: buildDrawer(context),
       body: Container(
         padding: const EdgeInsets.all(10),
         width: MediaQuery.of(context).size.width,

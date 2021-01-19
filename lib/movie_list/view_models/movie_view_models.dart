@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/models/movie.dart';
-import 'package:flutter_movie_app/services/web_service.dart';
+import 'package:flutter_movie_app/movie_list/models/movie.dart';
+import 'package:flutter_movie_app/movie_list/services/web_service.dart';
 
 class MovieListViewModel extends ChangeNotifier {
   List<MovieViewModel> movies = List<MovieViewModel>();

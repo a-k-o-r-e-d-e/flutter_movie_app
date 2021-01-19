@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/view_models/movie_view_models.dart';
+import 'package:flutter_movie_app/movie_list/view_models/movie_view_models.dart';
 
 class MovieList extends StatelessWidget {
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/pages/movie_list_page.dart';
-import 'package:flutter_movie_app/view_models/movie_view_models.dart';
+import 'package:flutter_movie_app/movie_list/pages/movie_list_page.dart';
+import 'package:flutter_movie_app/movie_list/view_models/movie_view_models.dart';
 import 'package:provider/provider.dart';
+
 
 void main() {
   runApp(MyApp());

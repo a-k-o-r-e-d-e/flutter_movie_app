@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_movie_app/models/movie.dart';
+import 'package:flutter_movie_app/movie_list/models/movie.dart';
 import 'package:flutter_movie_app/secrets.dart';
 import 'package:http/http.dart' as http;
 
