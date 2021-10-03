@@ -3,9 +3,13 @@ import 'package:flutter_movie_app/movie_list/models/movie.dart';
 import 'package:flutter_movie_app/movie_list/services/web_service.dart';
 
 class MovieListViewModel extends ChangeNotifier {
-  List<MovieViewModel> movies = List<MovieViewModel>();
+  List<MovieViewModel> movies = <MovieViewModel>[];
 
-  Future <void> fetchMovies (String keyword) async {
+  MovieListViewModel() {
+    fetchMovies();
+  }
+
+  Future <void> fetchMovies ({String keyword = 'marvel'}) async {
     final results = await WebService().fetchMovies(keyword);
     this.movies = results.map((item) => MovieViewModel(movie: item)).toList();
     print(this.movies);

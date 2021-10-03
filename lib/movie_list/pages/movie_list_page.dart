@@ -16,49 +16,58 @@ class _MovieListPageState extends State<MovieListPage> {
   void initState() {
     super.initState();
     // get all batman movies when this page is loaded
-    Provider.of<MovieListViewModel>(context, listen: false)
-        .fetchMovies('batman');
+    // Provider.of<MovieListViewModel>(context, listen: false)
+    //     .fetchMovies('batman');
   }
 
   @override
   Widget build(BuildContext context) {
-    final vm = Provider.of<MovieListViewModel>(context);
+    // final vm = Provider.of<MovieListViewModel>(context);
 
-    return Scaffold(
-      appBar: AppBar(),
-      drawer: buildDrawer(context),
-      body: Container(
-        padding: const EdgeInsets.all(10),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.only(left: 10),
-              margin: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  color: Colors.grey, borderRadius: BorderRadius.circular(10)),
-              child: TextField(
-                controller: _controller,
-                onSubmitted: (value) {
-                  if (value.isNotEmpty) {
-                    vm.fetchMovies(value);
-                    _controller.clear();
-                  }
-                },
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                    hintText: "Search",
-                    hintStyle: TextStyle(color: Colors.white),
-                    border: InputBorder.none),
-              ),
+    return ChangeNotifierProvider<MovieListViewModel>(
+        create: (_) => MovieListViewModel(),
+        child: Scaffold(
+          appBar: AppBar(),
+          drawer: buildDrawer(context),
+          body: Container(
+            padding: const EdgeInsets.all(10),
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(left: 10),
+                  margin: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: TextField(
+                    controller: _controller,
+                    onSubmitted: (value) {
+                      if (value.isNotEmpty) {
+                        Provider.of<MovieListViewModel>(context)
+                            .fetchMovies(keyword: value);
+                        _controller.clear();
+                      }
+                    },
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                        hintText: "Search",
+                        hintStyle: TextStyle(color: Colors.white),
+                        border: InputBorder.none),
+                  ),
+                ),
+                Expanded(
+                  child: Consumer<MovieListViewModel>(
+                    builder: (BuildContext context, model, Widget child) =>
+                        MovieList(
+                      movies: model.movies,
+                    ),
+                  ),
+                )
+              ],
             ),
-            Expanded(
-              child: MovieList(movies: vm.movies),
-            )
-          ],
-        ),
-      ),
-    );
+          ),
+        ));
   }
 }
