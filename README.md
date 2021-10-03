@@ -2,14 +2,22 @@
 
 A Sample Movie App used to practice MVVM design pattern
 
-## Getting Started
+One of the Very first Flutter UI, I Implemented. Please This should not be used as a measure of my abilities in any way. Lol
 
-This project is a starting point for a Flutter application.
+<h2> ** ScreenShots </h2>
+<br>
+<h5> Movie List Screen </h5>
 
-A few resources to get you started if this is your first Flutter project:
+![Movie List Screen](/screenshots/Movie_List_Screen.png)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<br><hr><hr><br>
+<h5> Drawer </h5>
+
+![Drawer](/screenshots/drawer.png)
+K
+<br><hr><hr><br>
+
+
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
